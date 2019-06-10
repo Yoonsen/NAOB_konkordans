@@ -2,4 +2,3 @@ ipywidgets
 matplotlib
 requests
 pandas
-csv
