@@ -4,7 +4,6 @@ import pandas as pd
 from PIL import Image
 import urllib
 
-
 @st.cache(suppress_st_warning=True, show_spinner = False)
 def konk(corpus = None, query = None): 
     conc = d2.Concordance(corpus, query)
@@ -25,7 +24,7 @@ st.markdown('Se mer om å drive analytisk DH på [DHLAB-siden](https://nbviewer.
 
 st.title('Søk i NAOB')
 
-words = st.text_input('Søk etter ord og fraser', "arbeid* på")
+words = st.text_input('Søk etter ord og fraser', """ "arbeid* på" """)
 
 
 #st.write(subject_ft, ddk_ft, doctype, period_slider, " ".join(allword))

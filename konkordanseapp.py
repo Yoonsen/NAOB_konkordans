@@ -1,13 +1,12 @@
 import streamlit as st
-import dhlab_v2 as d2
+from dhlab_v2 import Concordance
 import pandas as pd
 from PIL import Image
 import urllib
 
-
 @st.cache(suppress_st_warning=True, show_spinner = False)
 def konk(corpus = None, query = None): 
-    conc = d2.Concordance(corpus, query)
+    conc = Concordance(corpus, query)
     #conc['link'] = conc['urn'].apply(lambda c: "[{display}](https://www.nb.no/items/{x}?searchText={q})".format(x = c, display = c.split('_')[2], q = urllib.parse.quote(query)))
     return conc
 
@@ -25,7 +24,7 @@ st.markdown('Se mer om å drive analytisk DH på [DHLAB-siden](https://nbviewer.
 
 st.title('Søk i NAOB')
 
-words = st.text_input('Søk etter ord og fraser', "arbeid* på")
+words = st.text_input('Søk etter ord og fraser', """ "arbeid* på" """)
 
 
 #st.write(subject_ft, ddk_ft, doctype, period_slider, " ".join(allword))

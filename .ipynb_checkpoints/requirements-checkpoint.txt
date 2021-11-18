@@ -1,4 +1,9 @@
 ipywidgets
 matplotlib
 requests
-pandas = 1.0
+pandas
+streamlit
+json
+networkx
+
+
