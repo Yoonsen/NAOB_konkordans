@@ -1,5 +1,5 @@
 import streamlit as st
-from dhlab_v2 import Concordance
+from dhlab.text import Concordance
 import pandas as pd
 from PIL import Image
 import urllib
@@ -19,7 +19,7 @@ naob = naob[naob.corpus == 'naob_hele']
 
 image = Image.open('NB-logo-no-eng-svart.png')
 st.image(image, width = 200)
-st.markdown('Se mer om å drive analytisk DH på [DHLAB-siden](https://nbviewer.jupyter.org/github/DH-LAB-NB/DHLAB/blob/master/DHLAB_ved_Nasjonalbiblioteket.ipynb), og korpusanalyse via web [her](https://beta.nb.no/korpus/)')
+st.markdown("Les mer om analytisk DH på [DHLAB-siden](https://nb.no/dhlab)")
 
 
 st.title('Søk i NAOB')
