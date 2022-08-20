@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: naobtest-deployment
+  labels:
+    app: naobtest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: naobtest
+  template:
+    metadata:
+      labels:
+        app: naobtest
+    spec:
+      containers:
+      - name: naobtest
+        image: gcr.io/norwegian-language-bank/naobtest:0a231066-2ac8-4379-b8dd-351286248929
+        command: [ "/bin/bash" ]
+        args: [ "-c", "streamlit run konkordanseapp.py --server.port 8501 --server.baseUrlPath /naobtest"]
+        ports:
+        - containerPort: 8501

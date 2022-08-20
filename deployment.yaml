@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: naob-deployment
+  labels:
+    app: naob
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: naob
+  template:
+    metadata:
+      labels:
+        app: naob
+    spec:
+      containers:
+      - name: naob
+        image: gcr.io/norwegian-language-bank/naob:8929d793-dc7e-4429-be99-fe984c79129d
+        command: [ "/bin/bash" ]
+        args: [ "-c", "streamlit run naob-ordbok.py --server.port 8501 --server.baseUrlPath /naob --browser.gatherUsageStats=False"]
+        ports:
+        - containerPort: 8501
+        resources:
+          limits:
+            cpu: 250m
+            ephemeral-storage: 256Mi
+            memory: 512Mi
+          requests:
+            cpu: 250m
+            ephemeral-storage: 256Mi
+            memory: 512Mi

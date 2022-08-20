@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-naob
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/ingress.allow-http: "false"
+spec:
+  tls:
+  - secretName: nginx-ingress-secret
+    hosts:
+     - "beta.nb.no"
+  rules:
+  - host: "beta.nb.no"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/naob"
+        backend:
+          service:
+            name: naob-service
+            port:
+              number: 80
