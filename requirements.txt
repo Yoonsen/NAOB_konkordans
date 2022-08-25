@@ -1,8 +1,9 @@
-dhlab==2.2.1
+dhlab>=2.6.2
 pandas==1.0.1
-streamlit
+streamlit>=1.12.0
 matplotlib
 numpy
 requests==2.23.0
 Pillow==7.0.0
 urllib3==1.25.8
+openpyxl
