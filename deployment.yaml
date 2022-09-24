@@ -16,17 +16,17 @@ spec:
     spec:
       containers:
       - name: naob
-        image: gcr.io/norwegian-language-bank/naob:8929d793-dc7e-4429-be99-fe984c79129d
+        image: gcr.io/norwegian-language-bank/naob:05d5dcd6-9d3f-46b7-9671-41d7ded84e8b
         command: [ "/bin/bash" ]
         args: [ "-c", "streamlit run naob-ordbok.py --server.port 8501 --server.baseUrlPath /naob --browser.gatherUsageStats=False"]
         ports:
         - containerPort: 8501
         resources:
           limits:
-            cpu: 250m
+            cpu: 1
             ephemeral-storage: 256Mi
-            memory: 512Mi
+            memory: 1Gi
           requests:
-            cpu: 250m
+            cpu: 1
             ephemeral-storage: 256Mi
-            memory: 512Mi
+            memory: 1Gi

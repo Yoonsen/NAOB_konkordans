@@ -48,7 +48,7 @@ def display_konks(conc, search, size, corpus):
     konks = konks[['urn','year','authors', 'title', 'concordance']]
     
     search = quote(search)
-    konks['link'] = konks['urn'].apply(lambda c: f"""[{c.split('_')[2]}](https://www.nb.no/items/{c}?searchText="{search}") """)
+    konks['link'] = konks['urn'].apply(lambda c: f"""[{c.split('_')[2]}](https://www.nb.no/items/{c}?searchText={search}) """)
     konks['concordance'] = konks['concordance'].apply(lambda c: c.replace('<b>', '**').replace('</b>','**'))
     konks = konks[['link','year','authors', 'title', 'concordance']].sort_values(by='year')
     return '\n\n'.join(
